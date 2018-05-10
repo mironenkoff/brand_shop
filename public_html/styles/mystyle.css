@@ -1003,10 +1003,18 @@ header {
 }
 .bottomMenu__ref:hover {
   color: #f16d7f;
+  font-weight: 700;
 }
 .bottomMenu__ref:active {
   background-color: #e7e7e7;
   border-radius: 30px 10px;
+  outline: none;
+}
+.bottomMenu__ref:visited {
+  outline: none;
+}
+.bottomMenu__ref:focus {
+  outline: none;
 }
 .socials {
   float: left;
