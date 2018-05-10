@@ -13,9 +13,6 @@
     a {
         text-decoration: none;
         color: #222222;
-        &:visited {
-            color: #222222;
-        }
     }
 }
 header {
@@ -764,6 +761,10 @@ header {
         line-height: 59px;
         padding-left: 20px;
         
+        &:visited {
+            outline: none;
+        }
+        
         &:hover {
             color: #f16d7f;
             font-weight: 700;
@@ -775,10 +776,6 @@ header {
             outline: none;
         }
     
-        &:visited {
-            outline: none;
-        }
-        
         &:focus {
             outline: none;
         }
@@ -810,9 +807,21 @@ header {
                 background-color: #fff;
                 text-align: center;
                 padding-top: 8px;
+                border-radius: 5px;
+                
                 i {
                     color: #b4b4b4;
                 }
+                &:visited {
+                    outline: none;
+                    background-color: #fff;
+                }
+                
+                &:focus {
+                    outline: none;
+                    background-color: #fff;
+                }
+                
                 &:hover {
                     background-color: #f26d80;
                     i {
@@ -821,6 +830,7 @@ header {
                 }
                 &:active {
                     background-color: #efefef;
+                    outline: none;
                 }
             }
         }
