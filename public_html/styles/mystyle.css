@@ -714,9 +714,11 @@ header {
 .feature {
   float: left;
   margin: 0 14%;
+  background-color: #222224;
 }
 .feature__img {
   display: block;
+  font-size: 0;
   background-image: url("../img/featureBg.jpg");
   background-repeat: no-repeat;
   position: relative;
@@ -783,7 +785,6 @@ header {
   float: left;
   padding: 20px 0;
   height: 100%;
-  background-color: #222224;
 }
 .feature__items a {
   display: block;
