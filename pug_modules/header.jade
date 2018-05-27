@@ -6,41 +6,7 @@ header
     ul.upperGroup
         li.browseButton Browse
             span.fa.fa-caret-down
-            ul.dropDown
-                li.dropDown__category WOMEN
-                    ul.dropDown__subCategory
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Dresses
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Tops
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Sweaters/Knits
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Jackets/Coats
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Blazers
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Denim
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Leggings/Pants
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Skirts/Shorts
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Accessories
-                li.dropDown__category MAN
-                    ul.dropDown__subCategory
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Tees/Tank tops
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Shirts/Polos
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Sweaters
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Sweatshirts/Hoodies
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Blazers
-                        li
-                            a.dropDown__subCategoryRef( href="#" ) Jackets/vests
+            include ../my_php/headerNav.php
         li.searchField
             form( action="#" name="search" )
                 input( type="search" placeholder="Search for item..." )
