@@ -137,5 +137,3 @@ for (let i = 0; i < goods.length; i++) {
     // Устанавливаем обработчик события на каждую кнопку "Добавить в корзину"
     addEvent(document.getElementsByClassName('button_addToCart')[i], 'click', addToCart);
 }
-
-
