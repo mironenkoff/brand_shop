@@ -12,10 +12,17 @@
             $subCategoryMan = [ "Tees/Tank tops", "Shirts/Polos", "Sweaters",
                 "Sweatshirts/Hoodies", "Blazers", "Jackets/vests" ];
 
-            $categoryItems = [ "WOMEN" => $subCategoryWomen, "MAN" => $subCategoryMan ];
-
+//            $categoryItems = [ "WOMEN" => $subCategoryWomen, "MAN" => $subCategoryMan ];
+            
+            $categoryItems = getCategories($db);
+            $subCategoryItems = [];
+            for ( $i = 0; $i < count( $categoryItems ); $i++ ) {
+                $subCategoryItems[ $i ] = getSubCategories( $db, $categoryItems[ $i ] );
+            }
+            
+            $categoryList = array_combine( $categoryItems, $subCategoryItems );
             echo '<ul class="dropDown">';
-                foreach ($categoryItems as $key => $value) {
+                foreach ($categoryList as $key => $value) {
                     echo ( '<li class="dropDown__category">' . $key );
                         echo '<ul class="dropDown__subCategory">';
                         foreach ($value as $internalValue) {
@@ -29,15 +36,16 @@
                 }
             echo '</ul>';
             ?>
-
         </li>
-      <li class="searchField">
-        <form action="#" name="search">
-          <input type="search" placeholder="Search for item...">
-          <button type="submit"><img src="img/search.png" alt="search"></button>
-        </form>
-      </li>
-      <li><a class="myAccountBtn" href="#">My Account<span class="fa fa-caret-down"></span></a></li>
-      <li><a class="myCartBtn" href="shoppingCart.php"><img src="img/cart.png" alt="My cart"></a></li>
+        <?php 
+        ?>
+        <li class="searchField">
+            <form action="#" name="search">
+                <input type="search" placeholder="Search for item...">
+                <button type="submit"><img src="img/search.png" alt="search"></button>
+            </form>
+        </li>
+        <li><a class="myAccountBtn" href="#">My Account<span class="fa fa-caret-down"></span></a></li>
+        <li><a class="myCartBtn" href="shoppingCart.php"><img src="img/cart.png" alt="My cart"></a></li>
     </ul>
 </header>
