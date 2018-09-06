@@ -351,7 +351,7 @@ header {
         "ForMen ForKids"
         "Acces ForKids";
 }
-.product {
+.productSet {
     width: 100%;
     &__header {
         font-family: Lato;
@@ -367,7 +367,8 @@ header {
             font-weight: 400;
         }
     }
-    &Set {
+}
+.product {
         display: grid;
         margin: 80px 232px;
         grid-template-columns: repeat(4, 261px);
@@ -375,23 +376,13 @@ header {
         grid-gap: 39px 32px;
         align-items: stretch;
         align-content: end;
+        &:hover button {
+                opacity: 1;
+        }
         &__banner {
             display: grid;
             grid-template-rows: 1fr;
             transition: box-shadow 1s;
-            &:hover {
-                //transition: box-shadow 1s;
-                //box-shadow: 0 5px 10px rgba(58, 56, 56, 0.3);
-                .productSet__img {
-                    transition: opacity 1s;
-                    opacity: 0.3;
-                }
-                .button_addToCart {
-                    //display: block;
-                    transition: opacity 1s;
-                    opacity: 1;
-                }
-            }
         }
         &__ref {
             display: grid;
@@ -404,6 +395,7 @@ header {
                 //box-shadow: 0 5px 20px rgba(58, 56, 56, 0.3);
                 box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.16)
             }
+            
             &:active {
                 transition: box-shadow 0.01s;
                 box-shadow: inset 0 -3px 3px rgba(58, 56, 56, 0.3);
@@ -413,12 +405,13 @@ header {
         &__img {
             transition: opacity 1s;
             
-            z-index: 2;
             &Wrap {
                 display: grid;
                 grid-row: 1 ~"/" 2;
                 align-items: stretch;
                 background-color: #3a3838;
+                
+                
             }
         }
         &__descrWrap {
@@ -456,9 +449,8 @@ header {
                 padding-top: 17px;
             }
         }
-    }
-    
 }
+
 .feature {
     float: left;
     margin: 0 14%;

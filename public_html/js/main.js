@@ -123,7 +123,7 @@ function addToCart(){
 }
 
 for (let i = 0; i < goods.length; i++) {
-    document.getElementsByClassName('productSet')[0].appendChild(createElement());
+    document.getElementsByClassName( 'productSet' )[ 0 ].appendChild( createElement() );
     
     document.getElementsByClassName('productSet__descr')[i].innerHTML = goods[i].name;
     let price = "$ " + goods[i].price;

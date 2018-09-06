@@ -10,7 +10,7 @@
                 include 'modules/nav.php';
                 include 'modules/slider.php';
                 include 'modules/category.php';
-                include 'modules/product.php';
+                include 'modules/productSet.php';
                 include 'modules/feature.php';
                 include 'modules/footer.php';
             ?>

@@ -611,24 +611,24 @@ header {
 .category__badge_ForKids {
   width: 180px;
 }
-.product {
+.productSet {
   width: 100%;
 }
-.product__header {
+.productSet__header {
   font-family: Lato;
   text-align: center;
   line-height: 54px;
 }
-.product__header_1 {
+.productSet__header_1 {
   font-size: 30px;
   font-weight: 700;
 }
-.product__header_2 {
+.productSet__header_2 {
   color: #9f9f9f;
   font-size: 14px;
   font-weight: 400;
 }
-.productSet {
+.product {
   display: grid;
   margin: 80px 232px;
   grid-template-columns: repeat(4, 261px);
@@ -637,71 +637,65 @@ header {
   align-items: stretch;
   align-content: end;
 }
-.productSet__banner {
+.product:hover button {
+  opacity: 1;
+}
+.product__banner {
   display: grid;
   grid-template-rows: 1fr;
   transition: box-shadow 1s;
 }
-.productSet__banner:hover .productSet__img {
-  transition: opacity 1s;
-  opacity: 0.3;
-}
-.productSet__banner:hover .button_addToCart {
-  transition: opacity 1s;
-  opacity: 1;
-}
-.productSet__ref {
+.product__ref {
   display: grid;
   grid-row: 1 / 2;
   grid-column: 1 / 2;
   transition: box-shadow 0.7s;
 }
-.productSet__ref:hover {
+.product__ref:hover {
   transition: box-shadow 0.7s;
   box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.16);
 }
-.productSet__ref:active {
+.product__ref:active {
   transition: box-shadow 0.01s;
   box-shadow: inset 0 -3px 3px rgba(58, 56, 56, 0.3);
 }
-.productSet__img {
+.product__img {
   transition: opacity 1s;
-  z-index: 2;
 }
-.productSet__imgWrap {
+.product__imgWrap {
   display: grid;
   grid-row: 1 / 2;
   align-items: stretch;
   background-color: #3a3838;
 }
-.productSet__descrWrap {
+.product__descrWrap {
   padding: 20px 14px;
 }
-.productSet__descr {
+.product__descr {
   font-family: Lato;
   text-align: left;
 }
-.productSet__descr_default {
+.product__descr_default {
   color: #222222;
   font-size: 13px;
   font-weight: 400;
 }
-.productSet__descr_red {
+.product__descr_red {
   color: #f16d7f;
   font-size: 16px;
   font-weight: 700;
   padding-top: 17px;
 }
-.productSet__price {
+.product__price {
   font-family: Lato;
   text-align: left;
 }
-.productSet__price_default {
+.product__price_default {
   color: #222222;
   font-size: 13px;
   font-weight: 400;
 }
-.productSet__price_red {
+.product__price_red {
   color: #f16d7f;
   font-size: 16px;
   font-weight: 700;
