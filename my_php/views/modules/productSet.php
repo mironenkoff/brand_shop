@@ -1,16 +1,16 @@
 <section class="productSet">
     <h3 class="productSet__header productSet__header_1">Fetured Items</h3>
     <h4 class="productSet__header productSet__header_2">Shop for items based on what we featured in this week</h4>
-    <div class="product">
+    <div class="product clearfix">
         <!-- Вставляем из main.js карточки товаров -->
         <!--Отключил JS, пишем php -->
         
-        <a class="product__ref" href="#">
+        <a class="product__ref clearfix" href="#">
             <div class="product__imgWrap">
                 <img class="product__img" src="img/prod_1.png" alt="product 1">
             </div>
             <div class="product__descrWrap">
-                <h3 class="product__descr product__descr_default">PRODUCT NAME</h3>
+                <h3 class="product__descr product__descr_default">PRODUCT NAME hjkjhkjhkjhkjhkjh kjhkjhkjhkjhkjhkjhkjh</h3>
                 <h3 class="product__price product__price_red">$99.99</h3>
             </div>
         </a>
