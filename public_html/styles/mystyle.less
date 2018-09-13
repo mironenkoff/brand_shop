@@ -82,14 +82,14 @@ header {
            outline: none;
        }
     }
+    
     &_browseAll {
         float: none;
-        margin: 0 auto;
+        clear: both;
         background-color: #f16d7f;
         width: 212px;
         height: 48px;
-        margin-top: 78px;
-        margin-bottom: 113px;
+        margin: 19px auto 113px;
         &:hover {
            transition: background 1s;
            background: #f16d7f;
@@ -357,6 +357,8 @@ header {
         "Acces ForKids";
 }
 .productSet {
+    padding-left: 232px;
+    padding-right: 228px;
     width: 100%;
     &__header {
         font-family: Lato;
@@ -370,12 +372,19 @@ header {
             color:  #9f9f9f;
             font-size: 14px;
             font-weight: 400;
+            margin-bottom: 59px;
         }
+    }
+    &__btnWrap {
+        float: left;
+        width: 100%;
     }
 }
 .product {
-        margin: 80px 232px;
+        float: left;
         position: relative;
+        margin-right: 19px;
+        margin-bottom: 39px;
         width: 261px;
         &:hover button {
             opacity: 1;
@@ -408,7 +417,7 @@ header {
         &__descr {
             font-family: Lato;
             text-align: left;
-            
+            white-space: nowrap;
             &_default {
                 color:  #222222;
                 font-size: 13px;

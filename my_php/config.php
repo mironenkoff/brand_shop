@@ -12,3 +12,6 @@
 $dsn = 'mysql:host=localhost;dbname=brand;charset=utf8';
 $user = 'root';
 $password = '';
+
+//Количество блоков продуктов на главной странице
+$blckQuantity = 8;

@@ -32,12 +32,7 @@ function getCategories( $db ) {
     return $res;
 }
 function getSubCategories( $db, $category) {
-//    var_dump( $tableName );
-//    var_dump( $fieldName );
-//    var_dump( $db );
-//    $sql = 'USE brand;';
-    
-//    $sql = 'SELECT :fieldName FROM :tableName;';
+
     $sql = 'SELECT brand.categories.category_name,'
             . ' brand.subcategories.subcategory_name'
             . ' FROM brand.subcategories'
@@ -62,6 +57,56 @@ function getSubCategories( $db, $category) {
 
     $res = $stmnt->fetchAll( PDO::FETCH_COLUMN, 1 );
 //    $res = $stmnt->fetchAll();
+//    print_r($res);
+    return $res;
+}
+function getProduct( $db, $productID ) {
+
+    $sql = 'SELECT brand.brands.brand_name,'
+            . ' brand.products.product_name,'
+            . ' brand.products.product_price,'
+            . ' brand.product_images.images_path'
+            . ' FROM brand.products'
+            . ' INNER JOIN brand.product_images'
+            . ' ON brand.products.product_ID = brand.product_images.product_ID'
+            . ' INNER JOIN brand.brands'
+            . ' ON brand.products.brand_ID = brand.brands.brand_ID'
+            . ' WHERE brand.products.product_ID = "'
+            . $productID . '"';
+
+//    var_dump($sql);
+    $stmnt = $db->prepare( $sql );
+    
+    $stmnt->execute();
+//    var_dump($exec);
+    
+//    $res = $stmnt->fetchAll( PDO::FETCH_COLUMN, 1 );
+//    $res = $stmnt->fetchAll();
+    $res = $stmnt->fetch( PDO::FETCH_ASSOC );
+//    print_r($res);
+    return $res;
+}
+function getProducts( $db ) {
+
+    $sql = 'SELECT brand.brands.brand_name,'
+            . ' brand.products.product_name,'
+            . ' brand.products.product_price,'
+            . ' brand.product_images.images_path'
+            . ' FROM brand.products'
+            . ' INNER JOIN brand.product_images'
+            . ' ON brand.products.product_ID = brand.product_images.product_ID'
+            . ' INNER JOIN brand.brands'
+            . ' ON brand.products.brand_ID = brand.brands.brand_ID';
+
+//    var_dump($sql);
+    $stmnt = $db->prepare( $sql );
+    
+    $stmnt->execute();
+//    var_dump($exec);
+    
+//    $res = $stmnt->fetchAll( PDO::FETCH_COLUMN, 1 );
+//    $res = $stmnt->fetchAll();
+    $res = $stmnt->fetchAll( PDO::FETCH_ASSOC );
 //    print_r($res);
     return $res;
 }
