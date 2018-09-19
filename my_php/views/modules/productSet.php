@@ -13,7 +13,7 @@
             $productPrice = $products[ $i ]["product_price"];
             $brand = $products[ $i ]["brand_name"]; ?>
         <div class="product clearfix">
-            <a class="product__ref clearfix" href="#">
+            <a class="product__ref clearfix" href="../my_php/views/product.php">
                 <div class="product__imgWrap">
                     <img class="product__img" src="../<?php echo $imgPath; ?>" alt="product 1">
                 </div>
