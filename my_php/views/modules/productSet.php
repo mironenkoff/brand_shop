@@ -5,15 +5,19 @@
     <!-- Вставляем из main.js карточки товаров -->
     <!--Отключил JS, пишем php -->
 
-    <?php
-        $products = getProducts( $db );
-        for ($i = 0; $i < $blckQuantity; $i++):
+    <?php $products = getProducts( $db ); ?>
+    <?php for ( $i = 0; $i < 8; $i++ ): ?>
+    
+        <?php
             $imgPath = $products[ $i ]["images_path"];
+            $productID = $products[ $i ]["product_ID"];
             $productName = $products[ $i ]["product_name"];
             $productPrice = $products[ $i ]["product_price"];
-            $brand = $products[ $i ]["brand_name"]; ?>
+            $brand = $products[ $i ]["brand_name"];
+        ?>
+    
         <div class="product clearfix">
-            <a class="product__ref clearfix" href="../my_php/views/product.php">
+            <a target="_blanc" class="product__ref clearfix" href="?action=goToProduct&id=<?php echo $productID; ?>">
                 <div class="product__imgWrap">
                     <img class="product__img" src="../<?php echo $imgPath; ?>" alt="product 1">
                 </div>
@@ -22,12 +26,12 @@
                     <h3 class="product__price product__price_red">$<?php echo $productPrice; ?></h3>
                 </div>
             </a>
-
-            <button class="button button_addToCart" id="">
+            <button class="button button_addToCart">
                 <img class="button__img_addToCart" src="img/toCart.png" alt="Add to cart">
                 <span class="button__txt_addToCart">Add to Cart</span>
             </button>
         </div>
+    
     <?php endfor; ?>
         
     <div class="productSet__btnWrap">

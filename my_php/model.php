@@ -88,7 +88,8 @@ function getProduct( $db, $productID ) {
 }
 function getProducts( $db ) {
 
-    $sql = 'SELECT brand.brands.brand_name,'
+    $sql = 'SELECT brand.products.product_ID,'
+            . ' brand.brands.brand_name,'
             . ' brand.products.product_name,'
             . ' brand.products.product_price,'
             . ' brand.product_images.images_path'
@@ -109,4 +110,44 @@ function getProducts( $db ) {
     $res = $stmnt->fetchAll( PDO::FETCH_ASSOC );
 //    print_r($res);
     return $res;
+}
+function doFeedbackAction( $db ) {
+    if ( !isset( $_REQUEST[ 'action' ] ) ) {
+        include '../my_php/views/mainView.php';
+        return;
+    }
+        
+    switch ( $_REQUEST[ 'action' ] ) {
+        case 'goToProduct':
+            if (!isset( $_REQUEST[ 'id' ] )) {
+                break;
+            }
+//                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
+//                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
+//                    return;
+//                }
+//                createComment($db, $_POST[ 'message' ], $_SESSION[ 'username' ] ?? $_POST[ 'username' ]);
+            createSinglePage( $db, $_GET[ 'id' ] );
+            break;
+//        case 'update':
+//            if ( !arrayHasValues(array_keys( $_POST ), [ 'message', 'id' ] ) ) {
+//                return;
+//            }
+//            updateComment($db, $_POST[ 'id' ], $_POST[ 'message' ]);
+//            break;
+//        case 'delete':
+//            if ( empty( $_GET [ 'id' ] ) ) {
+//                return;
+//            }
+//            deleteComment($db, $_GET[ 'id' ] );
+//            break;
+
+//            default:
+//                break;
+        }
+    }
+function createSinglePage( $db, $id ) {
+    include '../my_php/views/productView.php';
+    
+    return;
 }
