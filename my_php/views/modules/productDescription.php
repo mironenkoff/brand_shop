@@ -5,6 +5,7 @@
     </div>
     <h4><?php echo $brand; ?> <?php echo $productName; ?></h4>
     <p>
+        <?php echo $descr; ?>
         Compellingly actualize fully researched processes before
         proactive outsourcing. Progressively syndicate
         collaborative architectures before cutting-edge services.

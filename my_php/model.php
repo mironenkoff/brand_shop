@@ -66,6 +66,7 @@ function getProduct( $db, $productID ) {
     $sql = 'SELECT brand.brands.brand_name,'
             . ' brand.products.product_name,'
             . ' brand.products.product_price,'
+            . ' brand.products.product_descript,'
             . ' brand.products.color,'
             . ' brand.products.size,'
             . ' brand.product_images.images_path,'
@@ -176,6 +177,7 @@ function createSinglePage( $db, $id ) {
     $categoryName = $product[ "category_name2" ];
     $material = $product[ "material_name" ];
     $designer = $product[ "designer_name" ];
+    $descr = $product[ "product_descript" ];
     
     include '../my_php/views/productView.php';
     
