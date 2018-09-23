@@ -60,17 +60,35 @@ function getSubCategories( $db, $category) {
 //    print_r($res);
     return $res;
 }
+
 function getProduct( $db, $productID ) {
 
     $sql = 'SELECT brand.brands.brand_name,'
             . ' brand.products.product_name,'
             . ' brand.products.product_price,'
-            . ' brand.product_images.images_path'
+            . ' brand.products.color,'
+            . ' brand.products.size,'
+            . ' brand.product_images.images_path,'
+            . ' brand.categories.category_name2,'
+            . ' brand.material.material_name,'
+            . ' brand.designers.designer_name'
             . ' FROM brand.products'
             . ' INNER JOIN brand.product_images'
             . ' ON brand.products.product_ID = brand.product_images.product_ID'
             . ' INNER JOIN brand.brands'
             . ' ON brand.products.brand_ID = brand.brands.brand_ID'
+            . ' INNER JOIN brand.subcategories'
+            . ' ON brand.products.subcategory_ID = brand.subcategories.subcategory_ID'
+            . ' INNER JOIN brand.categories'
+            . ' ON brand.subcategories.category_ID = brand.categories.category_ID'
+//            . ' UNION brand.material'
+//            . ' INNER JOIN brand.material'
+//            . ' ON brand.products.material_ID = brand.material.material_ID'
+            . ' LEFT JOIN brand.material'
+            . ' ON brand.products.material_ID = brand.material.material_ID'
+//            . ' UNION brand.designers'
+            . ' LEFT JOIN brand.designers'
+            . ' ON brand.products.designer_ID = brand.designers.designer_ID'
             . ' WHERE brand.products.product_ID = "'
             . $productID . '"';
 
@@ -86,6 +104,7 @@ function getProduct( $db, $productID ) {
 //    print_r($res);
     return $res;
 }
+
 function getProducts( $db ) {
 
     $sql = 'SELECT brand.products.product_ID,'
@@ -127,6 +146,7 @@ function doFeedbackAction( $db ) {
 //                    return;
 //                }
 //                createComment($db, $_POST[ 'message' ], $_SESSION[ 'username' ] ?? $_POST[ 'username' ]);
+//            var_dump($_GET);
             createSinglePage( $db, $_GET[ 'id' ] );
             break;
 //        case 'update':
@@ -142,11 +162,21 @@ function doFeedbackAction( $db ) {
 //            deleteComment($db, $_GET[ 'id' ] );
 //            break;
 
-//            default:
-//                break;
+            default:
+                break;
         }
     }
 function createSinglePage( $db, $id ) {
+    $product = getProduct( $db, $id );
+    
+    $imgPath = $product[ "images_path" ];
+    $productName = $product[ "product_name" ];
+    $price = $product[ "product_price" ];
+    $brand = $product[ "brand_name" ];
+    $categoryName = $product[ "category_name2" ];
+    $material = $product[ "material_name" ];
+    $designer = $product[ "designer_name" ];
+    
     include '../my_php/views/productView.php';
     
     return;

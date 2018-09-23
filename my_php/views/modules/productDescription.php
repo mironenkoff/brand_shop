@@ -1,9 +1,9 @@
 <section class="productDescription clearfix">
-    <h3>WOMEN COLLECTION</h3>
+    <h3><?php echo $categoryName ?></h3>
     <div class="productDescription__selectorField">
         <div class="productDescription__selector"></div>
     </div>
-    <h4>MOSCHINO CHEAP AND CHIC</h4>
+    <h4><?php echo $brand; ?> <?php echo $productName; ?></h4>
     <p>
         Compellingly actualize fully researched processes before
         proactive outsourcing. Progressively syndicate
@@ -12,12 +12,12 @@
         than exceptional portals.
     </p>
     <div class="productDescription__material">
-        MATERIAL&colon; <span>COTTON</span>
+        MATERIAL&colon; <span><?php echo $material; ?></span>
     </div>
     <div class="productDescription__designer">
-        DESIGNER&colon; <span>BINBURHAN</span>
+        DESIGNER&colon; <span><?php echo $designer; ?></span>
     </div>
-    <h5>$561</h5>
+    <h5>$ <?php echo $price; ?></h5>
     <div class="productDescription__separator"></div>
     <form class="productDescription__form clearfix">
         <div>
