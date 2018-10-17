@@ -147,7 +147,7 @@ function doFeedbackAction( $db ) {
 //                    return;
 //                }
 //                createComment($db, $_POST[ 'message' ], $_SESSION[ 'username' ] ?? $_POST[ 'username' ]);
-//            var_dump($_GET);
+//            var_dump($_GET['products']);
             createSinglePage( $db, $_GET[ 'id' ] );
             break;
 //        case 'update':
@@ -169,7 +169,6 @@ function doFeedbackAction( $db ) {
     }
 function createSinglePage( $db, $id ) {
     $product = getProduct( $db, $id );
-    
     $imgPath = $product[ "images_path" ];
     $productName = $product[ "product_name" ];
     $price = $product[ "product_price" ];
@@ -182,4 +181,43 @@ function createSinglePage( $db, $id ) {
     include '../my_php/views/productView.php';
     
     return;
+}
+function prevID( $db, $id ) {
+    $arr = getIDs( $db );
+    $key = array_search( $id, $arr );
+    
+    if ( $key == 0 ) {
+        return end( $arr );
+    } else {
+        return $arr[ --$key ];
+    }
+}
+
+function nextID( $db, $id ) {
+    $arr = getIDs( $db );
+    $key = array_search( $id, $arr );
+//    print_r($arr);
+//    var_dump($key);
+    end($arr);
+    if ( $key == key( $arr ) ) {
+        return $arr[ 0 ];
+    } else {
+        return $arr[ ++$key ];
+    }
+}
+
+function getIDs( $db ) {
+    $sql = 'SELECT brand.products.product_ID FROM brand.products ORDER BY product_ID ASC;';
+
+//    var_dump($sql);
+    $stmnt = $db->prepare( $sql );
+    
+    $stmnt->execute();
+//    var_dump($exec);
+    
+    $res = $stmnt->fetchAll( PDO::FETCH_COLUMN, 0 );
+//    $res = $stmnt->fetchAll();
+//    $res = $stmnt->fetchAll( PDO::FETCH_ASSOC );
+//    print_r($res);
+    return $res;
 }

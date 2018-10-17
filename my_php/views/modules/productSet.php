@@ -2,20 +2,23 @@
     <h3 class="productSet__header productSet__header_1">Featured Items</h3>
     <h4 class="productSet__header productSet__header_2">Shop for items based on what we featured in this week</h4>
     
-    <!-- Вставляем из main.js карточки товаров -->
-    <!--Отключил JS, пишем php -->
-
-    <?php $products = getProducts( $db ); ?>
-    <?php for ( $i = 0; $i < 8; $i++ ): ?>
-    
+    <?php // $products = getProducts( $db ); ?>
+    <?php $_SESSION[ 'products' ] = getProducts( $db ); ?>
+    <?php // print_r($_SESSION); ?>
+    <?php for ( $i = 4; $i < 12; $i++ ): ?>
         <?php
-            $imgPath = $products[ $i ]["images_path"];
-            $productID = $products[ $i ]["product_ID"];
-            $productName = $products[ $i ]["product_name"];
-            $productPrice = $products[ $i ]["product_price"];
-            $brand = $products[ $i ]["brand_name"];
+//            $imgPath = $products[ $i ]["images_path"];
+//            $productID = $products[ $i ]["product_ID"];
+//            $productName = $products[ $i ]["product_name"];
+//            $productPrice = $products[ $i ]["product_price"];
+//            $brand = $products[ $i ]["brand_name"];
+            $imgPath = $_SESSION[ 'products' ][ $i ]["images_path"];
+            $productID = $_SESSION[ 'products' ][ $i ]["product_ID"];
+            $productName = $_SESSION[ 'products' ][ $i ]["product_name"];
+            $productPrice = $_SESSION[ 'products' ][ $i ]["product_price"];
+            $brand = $_SESSION[ 'products' ][ $i ]["brand_name"];
+            
         ?>
-    
         <div class="product clearfix">
             <a target="_blanc" class="product__ref clearfix" href="?action=goToProduct&id=<?php echo $productID; ?>">
                 <div class="product__imgWrap">
