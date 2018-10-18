@@ -497,8 +497,13 @@ header {
   padding-left: 5px;
 }
 .myCartBtn {
+  background-color: transparent;
+  border: none;
   float: right;
   padding-top: 0;
+}
+.myCartBtn:focus {
+  outline: none;
 }
 .myCartBtn img {
   width: 32px;

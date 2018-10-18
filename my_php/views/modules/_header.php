@@ -45,7 +45,25 @@
                 <button type="submit"><img src="img/search.png" alt="search"></button>
             </form>
         </li>
-        <li><a class="myAccountBtn" href="#">My Account<span class="fa fa-caret-down"></span></a></li>
-        <li><a class="myCartBtn" href="shoppingCart.php"><img src="img/cart.png" alt="My cart"></a></li>
+        <!--<li><a class="myAccountBtn" href="#">My Account<span class="fa fa-caret-down"></span></a></li>-->
+        <li>
+            <a class="myAccountBtn" href="#">
+                My Account
+                <span class="fa fa-caret-down"></span>
+            </a>
+        </li>
+<!--        <li>
+            <a class="myCartBtn" href="shoppingCart.php">
+                <img src="img/cart.png" alt="My cart">
+            </a>
+        </li>-->
+        <li>
+            <form method="get" action="index.php">
+                <button type="submit" name="action" value="toCart" class="myCartBtn">
+                    <img src="img/cart.png" alt="My cart">
+                </button>
+            </form>
+            
+        </li>
     </ul>
 </header>
