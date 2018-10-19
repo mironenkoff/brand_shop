@@ -59,8 +59,17 @@
         </li>-->
         <li>
             <form method="get" action="index.php">
-                <button type="submit" name="action" value="toCart" class="myCartBtn">
+                <button name="action" value="openCart" class="myCartBtn">
                     <img src="img/cart.png" alt="My cart">
+                    
+                    <?php
+                        if ( $_SESSION[ 'cart' ] ) {
+                            $eclipse = '<div class="eclipse">';
+                            $eclipse .= count( $_SESSION[ 'cart' ] );
+                            $eclipse .= '</div>';
+                            echo $eclipse;
+                        }
+                    ?>
                 </button>
             </form>
             

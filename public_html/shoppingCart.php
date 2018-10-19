@@ -2,16 +2,37 @@
     include '../my_php/views/modules/_begining.php';
     include '../my_php/views/modules/_header.php';
     include '../my_php/views/modules/_nav.php';
+    include '../my_php/views/modules/_newArrivals.php';
 ?>
-
-<a class="newArrivals" href="##">
-        <h2 class="newArrivals__title">NEW ARRIVALS</h2>
-        <h3 class="newArrivals__path">HOME/MAN/<span class="newArrivals__path newArrivals__path_red">NEW ARRIVALS</span></h3>
-</a>
+<?php print_r( $_SESSION[ 'cart' ] ); ?>
 <div class="cartContent">
-    
+    <table class="cartTable">
+        <thead class="cartTable__head">
+            <tr>
+                <td>PRODUCT DETAILS</td>
+                <td>UNIT PRICE</td>
+                <td>QUANTITY</td>
+                <td>SHIPPING</td>
+                <td>SUBTOTAL</td>
+                <td>ACTION</td>
+            </tr>
+        </thead>
+        <tbody class="cartTable__body">
+            <tr>
+                <td>
+                    jjj
+                </td>
+            </tr>
+        </tbody>
+    </table>       
 </div>
-<button id="clearCart">CLEAR SHOPPING CART</button><a id="continueShopping" href="index.php">CONTINUE SHOPPING</a>
+
+<button id="clearCart">
+    CLEAR SHOPPING CART
+</button>
+<a id="continueShopping" href="index.php">
+    CONTINUE SHOPPING
+</a>
 <form class="checkOutForm" action="">
   <div class="checkOutForm__address">
     <h2>SHIPPING ADDRESS</h2>
@@ -46,14 +67,3 @@
     include '../my_php/views/modules/_ending.php';
 ?>
 
-<!--  <head>
-    <title>Shopping Cart</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles/reset.css" rel="stylesheet" type="text/css">
-    <link href="styles/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
-    <link href="styles/mystyle.css" rel="stylesheet" type="text/css">
-    <link href="img/BranD_logo.png" rel="icon" type="image/x-icon">
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-    <script src="js/cart.js" defer></script>
-  </head>-->

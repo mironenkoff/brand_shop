@@ -150,7 +150,7 @@ function doFeedbackAction( $db ) {
 //            var_dump($_GET['products']);
             createSinglePage( $db, $_GET[ 'id' ] );
             break;
-        case 'toCart':
+        case 'openCart':
 //            if (!isset( $_REQUEST[ 'id' ] )) {
 //                break;
 //            }
@@ -162,18 +162,22 @@ function doFeedbackAction( $db ) {
 //            var_dump($_GET['action']);
             include 'shoppingCart.php';
             break;
-//        case 'addToCart':
-//            if (!isset( $_REQUEST[ 'id' ] )) {
-//                break;
-//            }
-////                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
-////                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
-////                    return;
-////                }
-////                createComment($db, $_POST[ 'message' ], $_SESSION[ 'username' ] ?? $_POST[ 'username' ]);
-////            var_dump($_GET['products']);
+        case 'addToCart':
+            if (!isset( $_REQUEST[ 'id' ] )) {
+                break;
+            }
+            $user = $_SESSION[ 'user' ] ? $_SESSION[ 'user' ] : 'guest';
+            $_SESSION[ 'cart' ][] = [ 'user'=>$user, 'id'=>$_GET[ 'id' ], 'quantity'=>1 ];
+//            var_dump($_SESSION['cart']);
+//                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
+//                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
+//                    return;
+//                }
+//                createComment($db, $_POST[ 'message' ], $_SESSION[ 'username' ] ?? $_POST[ 'username' ]);
+//            var_dump($_GET['products']);
 //            add( $db, $_GET[ 'id' ] );
-//            break;
+            include '../my_php/views/mainView.php';
+            break;
 //        case 'update':
 //            if ( !arrayHasValues(array_keys( $_POST ), [ 'message', 'id' ] ) ) {
 //                return;

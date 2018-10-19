@@ -60,28 +60,6 @@ header {
     line-height: 32px;
     text-align: center;
     background-color: #f9f9f9;
-    &_addToCart {
-        transition: background 1s;
-        background: #b6b4b4;
-        transition: opacity 1s;
-        opacity: 0;
-        border-radius: 5px;
-        position: absolute;
-        width: 123px;
-        height: 39px;
-        top: 95px;
-        left: 70px;
-        &:hover {
-           transition: background 1s;
-           background: #f16d7f;
-       }
-       &:active {
-           outline: none;
-       }
-       &:focus {
-           outline: none;
-       }
-    }
     
     &_browseAll {
         float: none;
@@ -95,18 +73,7 @@ header {
            background: #f16d7f;
        }
     }
-    &__img {
-        &_addToCart {
-            clear: left;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-    }
     &__txt {
-        &_addToCart {
-            color: #ffffff;
-            vertical-align: middle;
-        }
         &_browseAll {
             color: #ffffff;            
             font-weight: 700;
@@ -210,6 +177,7 @@ header {
     }
 }
 .myCartBtn {
+    position: relative;
     background-color: transparent;
     border: none;
     float: right;
@@ -221,9 +189,27 @@ header {
         width: 32px;
         height: 29px;
         margin-top: 5px;
-        margin-right: 10px;
+        margin-right: 26px;
     }
 }
+
+.eclipse {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    background-color: #f16d7f;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 12px;
+    padding-top: 3px;
+}
+
+
 .nav {
     position: relative;
     background-color: #fff;
@@ -391,8 +377,39 @@ header {
         margin-right: 19px;
         margin-bottom: 39px;
         width: 261px;
-        &:hover button {
+        &:hover .product__addToCart {
             opacity: 1;
+        }
+        &__addToCart {
+            display: table;
+            transition: background 1s;
+            background: #b6b4b4;
+            transition: opacity 1s;
+            opacity: 0;
+            border-radius: 5px;
+            position: absolute;
+            width: 123px;
+            height: 39px;
+            top: 95px;
+            left: 70px;
+            &:hover {
+               transition: background 1s;
+               background: #f16d7f;
+            }
+            &:active {
+                outline: none;
+            }
+            &:focus {
+                outline: none;
+            }
+            img {
+                vertical-align: middle;
+                margin: 8px;
+            }
+            span {
+                color: #ffffff;
+                vertical-align: middle;
+            }
         }
         &__ref {
             float: left;

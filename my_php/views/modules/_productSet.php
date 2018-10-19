@@ -2,7 +2,6 @@
     <h3 class="productSet__header productSet__header_1">Featured Items</h3>
     <h4 class="productSet__header productSet__header_2">Shop for items based on what we featured in this week</h4>
     
-    <?php // $products = getProducts( $db ); ?>
     <?php $_SESSION[ 'products' ] = getProducts( $db ); ?>
     <?php // print_r($_SESSION); ?>
     <?php for ( $i = 4; $i < 12; $i++ ): ?>
@@ -29,10 +28,10 @@
                     <h3 class="product__price product__price_red">$<?php echo $productPrice; ?></h3>
                 </div>
             </a>
-            <button class="button button_addToCart">
-                <img class="button__img_addToCart" src="img/toCart.png" alt="Add to cart">
-                <span class="button__txt_addToCart">Add to Cart</span>
-            </button>
+            <a href="?action=addToCart&id=<?php echo $productID; ?>" class="product__addToCart">
+                <img src="img/toCart.png" alt="Add to cart">
+                <span>Add to Cart</span>
+            </a>
         </div>
     
     <?php endfor; ?>

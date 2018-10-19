@@ -61,28 +61,6 @@ header {
   text-align: center;
   background-color: #f9f9f9;
 }
-.button_addToCart {
-  transition: background 1s;
-  background: #b6b4b4;
-  transition: opacity 1s;
-  opacity: 0;
-  border-radius: 5px;
-  position: absolute;
-  width: 123px;
-  height: 39px;
-  top: 95px;
-  left: 70px;
-}
-.button_addToCart:hover {
-  transition: background 1s;
-  background: #f16d7f;
-}
-.button_addToCart:active {
-  outline: none;
-}
-.button_addToCart:focus {
-  outline: none;
-}
 .button_browseAll {
   float: none;
   clear: both;
@@ -94,15 +72,6 @@ header {
 .button_browseAll:hover {
   transition: background 1s;
   background: #f16d7f;
-}
-.button__img_addToCart {
-  clear: left;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-.button__txt_addToCart {
-  color: #ffffff;
-  vertical-align: middle;
 }
 .button__txt_browseAll {
   color: #ffffff;
@@ -128,28 +97,6 @@ header {
   border-top-left-radius: 3px;
   padding-top: 2px;
 }
-.browseButton_addToCart {
-  transition: background 1s;
-  background: #b6b4b4;
-  transition: opacity 1s;
-  opacity: 0;
-  border-radius: 5px;
-  position: absolute;
-  width: 123px;
-  height: 39px;
-  top: 95px;
-  left: 70px;
-}
-.browseButton_addToCart:hover {
-  transition: background 1s;
-  background: #f16d7f;
-}
-.browseButton_addToCart:active {
-  outline: none;
-}
-.browseButton_addToCart:focus {
-  outline: none;
-}
 .browseButton_browseAll {
   float: none;
   clear: both;
@@ -161,15 +108,6 @@ header {
 .browseButton_browseAll:hover {
   transition: background 1s;
   background: #f16d7f;
-}
-.browseButton__img_addToCart {
-  clear: left;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-.browseButton__txt_addToCart {
-  color: #ffffff;
-  vertical-align: middle;
 }
 .browseButton__txt_browseAll {
   color: #ffffff;
@@ -237,28 +175,6 @@ header {
   width: 317px;
   background-color: #fff;
 }
-.searchField_addToCart {
-  transition: background 1s;
-  background: #b6b4b4;
-  transition: opacity 1s;
-  opacity: 0;
-  border-radius: 5px;
-  position: absolute;
-  width: 123px;
-  height: 39px;
-  top: 95px;
-  left: 70px;
-}
-.searchField_addToCart:hover {
-  transition: background 1s;
-  background: #f16d7f;
-}
-.searchField_addToCart:active {
-  outline: none;
-}
-.searchField_addToCart:focus {
-  outline: none;
-}
 .searchField_browseAll {
   float: none;
   clear: both;
@@ -270,15 +186,6 @@ header {
 .searchField_browseAll:hover {
   transition: background 1s;
   background: #f16d7f;
-}
-.searchField__img_addToCart {
-  clear: left;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-.searchField__txt_addToCart {
-  color: #ffffff;
-  vertical-align: middle;
 }
 .searchField__txt_browseAll {
   color: #ffffff;
@@ -305,28 +212,6 @@ header {
   text-align: left;
   padding-left: 10px;
 }
-.searchField input_addToCart {
-  transition: background 1s;
-  background: #b6b4b4;
-  transition: opacity 1s;
-  opacity: 0;
-  border-radius: 5px;
-  position: absolute;
-  width: 123px;
-  height: 39px;
-  top: 95px;
-  left: 70px;
-}
-.searchField input_addToCart:hover {
-  transition: background 1s;
-  background: #f16d7f;
-}
-.searchField input_addToCart:active {
-  outline: none;
-}
-.searchField input_addToCart:focus {
-  outline: none;
-}
 .searchField input_browseAll {
   float: none;
   clear: both;
@@ -338,15 +223,6 @@ header {
 .searchField input_browseAll:hover {
   transition: background 1s;
   background: #f16d7f;
-}
-.searchField input__img_addToCart {
-  clear: left;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-.searchField input__txt_addToCart {
-  color: #ffffff;
-  vertical-align: middle;
 }
 .searchField input__txt_browseAll {
   color: #ffffff;
@@ -373,28 +249,6 @@ header {
   background-color: transparent;
   padding-top: 5px;
 }
-.searchField button_addToCart {
-  transition: background 1s;
-  background: #b6b4b4;
-  transition: opacity 1s;
-  opacity: 0;
-  border-radius: 5px;
-  position: absolute;
-  width: 123px;
-  height: 39px;
-  top: 95px;
-  left: 70px;
-}
-.searchField button_addToCart:hover {
-  transition: background 1s;
-  background: #f16d7f;
-}
-.searchField button_addToCart:active {
-  outline: none;
-}
-.searchField button_addToCart:focus {
-  outline: none;
-}
 .searchField button_browseAll {
   float: none;
   clear: both;
@@ -406,15 +260,6 @@ header {
 .searchField button_browseAll:hover {
   transition: background 1s;
   background: #f16d7f;
-}
-.searchField button__img_addToCart {
-  clear: left;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-.searchField button__txt_addToCart {
-  color: #ffffff;
-  vertical-align: middle;
 }
 .searchField button__txt_browseAll {
   color: #ffffff;
@@ -440,28 +285,6 @@ header {
   font-size: 15px;
   padding-top: 3px;
 }
-.myAccountBtn_addToCart {
-  transition: background 1s;
-  background: #b6b4b4;
-  transition: opacity 1s;
-  opacity: 0;
-  border-radius: 5px;
-  position: absolute;
-  width: 123px;
-  height: 39px;
-  top: 95px;
-  left: 70px;
-}
-.myAccountBtn_addToCart:hover {
-  transition: background 1s;
-  background: #f16d7f;
-}
-.myAccountBtn_addToCart:active {
-  outline: none;
-}
-.myAccountBtn_addToCart:focus {
-  outline: none;
-}
 .myAccountBtn_browseAll {
   float: none;
   clear: both;
@@ -473,15 +296,6 @@ header {
 .myAccountBtn_browseAll:hover {
   transition: background 1s;
   background: #f16d7f;
-}
-.myAccountBtn__img_addToCart {
-  clear: left;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-.myAccountBtn__txt_addToCart {
-  color: #ffffff;
-  vertical-align: middle;
 }
 .myAccountBtn__txt_browseAll {
   color: #ffffff;
@@ -497,6 +311,7 @@ header {
   padding-left: 5px;
 }
 .myCartBtn {
+  position: relative;
   background-color: transparent;
   border: none;
   float: right;
@@ -509,7 +324,22 @@ header {
   width: 32px;
   height: 29px;
   margin-top: 5px;
-  margin-right: 10px;
+  margin-right: 26px;
+}
+.eclipse {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background-color: #f16d7f;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 12px;
+  padding-top: 3px;
 }
 .nav {
   position: relative;
@@ -671,8 +501,39 @@ header {
   margin-bottom: 39px;
   width: 261px;
 }
-.product:hover button {
+.product:hover .product__addToCart {
   opacity: 1;
+}
+.product__addToCart {
+  display: table;
+  transition: background 1s;
+  background: #b6b4b4;
+  transition: opacity 1s;
+  opacity: 0;
+  border-radius: 5px;
+  position: absolute;
+  width: 123px;
+  height: 39px;
+  top: 95px;
+  left: 70px;
+}
+.product__addToCart:hover {
+  transition: background 1s;
+  background: #f16d7f;
+}
+.product__addToCart:active {
+  outline: none;
+}
+.product__addToCart:focus {
+  outline: none;
+}
+.product__addToCart img {
+  vertical-align: middle;
+  margin: 8px;
+}
+.product__addToCart span {
+  color: #ffffff;
+  vertical-align: middle;
 }
 .product__ref {
   float: left;
