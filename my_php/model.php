@@ -166,8 +166,22 @@ function doFeedbackAction( $db ) {
             if (!isset( $_REQUEST[ 'id' ] )) {
                 break;
             }
+//            $_SESSION[ 'cart' ]= [];
             $user = $_SESSION[ 'user' ] ? $_SESSION[ 'user' ] : 'guest';
-            $_SESSION[ 'cart' ][] = [ 'user'=>$user, 'id'=>$_GET[ 'id' ], 'quantity'=>1 ];
+            $searchValue = array_search( $_REQUEST[ 'id' ], array_column( $_SESSION[ 'cart' ], 'id' ) );
+//            var_dump($searchValue);
+//            $_SESSION[ 'cart' ] = [];
+            if ( $searchValue === FALSE ) {
+                $_SESSION[ 'cart' ][] = [ 'user'=>$user, 'id'=>$_REQUEST[ 'id' ], 'quantity'=>1 ];
+//                print_r($_REQUEST['id']);
+//                print_r( $_SESSION[ 'cart' ] );
+                
+            } else {
+//                print_r($_SESSION['cart']);
+                $_SESSION[ 'cart' ][$searchValue]['quantity']++;
+//                print_r( $_SESSION[ 'cart' ] );
+            }
+            
 //            var_dump($_SESSION['cart']);
 //                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
 //                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
@@ -248,4 +262,8 @@ function getIDs( $db ) {
 //    $res = $stmnt->fetchAll( PDO::FETCH_ASSOC );
 //    print_r($res);
     return $res;
+}
+
+function increaseQuantity( $id ) {
+    
 }

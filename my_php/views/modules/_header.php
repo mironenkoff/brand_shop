@@ -61,7 +61,6 @@
             <form method="get" action="index.php">
                 <button name="action" value="openCart" class="myCartBtn">
                     <img src="img/cart.png" alt="My cart">
-                    
                     <?php
                         if ( $_SESSION[ 'cart' ] ) {
                             $eclipse = '<div class="eclipse">';
