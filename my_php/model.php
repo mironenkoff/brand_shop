@@ -158,31 +158,41 @@ function doFeedbackAction( $db ) {
 //                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
 //                    return;
 //                }
-//                createComment($db, $_POST[ 'message' ], $_SESSION[ 'username' ] ?? $_POST[ 'username' ]);
-//            var_dump($_GET['action']);
+            
             include 'shoppingCart.php';
             break;
         case 'addToCart':
             if (!isset( $_REQUEST[ 'id' ] )) {
                 break;
             }
-//            $_SESSION[ 'cart' ]= [];
+            $id = $_REQUEST[ 'id' ];
             $user = $_SESSION[ 'user' ] ? $_SESSION[ 'user' ] : 'guest';
-            $searchValue = array_search( $_REQUEST[ 'id' ], array_column( $_SESSION[ 'cart' ], 'id' ) );
+            $searchValue = array_search( $id, array_column( $_SESSION[ 'cart' ], 'id' ) );
 //            var_dump($searchValue);
 //            $_SESSION[ 'cart' ] = [];
             if ( $searchValue === FALSE ) {
-                $_SESSION[ 'cart' ][] = [ 'user'=>$user, 'id'=>$_REQUEST[ 'id' ], 'quantity'=>1 ];
+                $key = array_search( $id, array_column( $_SESSION[ 'products' ], 'product_ID' ) );
+                $name = $_SESSION[ 'products' ][ $key ][ 'product_name' ];
+                $prise = $_SESSION[ 'products' ][ $key ][ 'product_price' ];
+                
+                $_SESSION[ 'cart' ][] = [
+                    'user'=>$user,
+                    'id'=>$id,
+                    'product_name'=>$name,
+                    'product_price'=>$prise,
+                    'quantity'=>1,
+                    'shipping'=>'free',
+                    'subtotal'=>$prise,
+                    'action' => '<a class="delItem" href=?action=deleteItem&amp;id='
+                        . $id
+                        . '><i class="delIcon fa fa-times-circle"></i></a>'
+                    ];
 //                print_r($_REQUEST['id']);
 //                print_r( $_SESSION[ 'cart' ] );
-                
             } else {
+                increaseQuantity($searchValue);
 //                print_r($_SESSION['cart']);
-                $_SESSION[ 'cart' ][$searchValue]['quantity']++;
-//                print_r( $_SESSION[ 'cart' ] );
             }
-            
-//            var_dump($_SESSION['cart']);
 //                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
 //                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
 //                    return;
@@ -191,6 +201,23 @@ function doFeedbackAction( $db ) {
 //            var_dump($_GET['products']);
 //            add( $db, $_GET[ 'id' ] );
             include '../my_php/views/mainView.php';
+            break;
+        case 'deleteItem':
+            $id = $_REQUEST[ 'id' ];
+            if ( !$id ) {
+                break;
+            }
+            $key = array_search( $id, array_column( $_SESSION[ 'cart' ], 'id' ) );
+//            print_r(array_column( $_SESSION[ 'cart' ], 'id' ));
+//            var_dump($key);
+//            var_dump($id);
+            unset( $_SESSION[ 'cart' ][ $key ] );
+            $_SESSION[ 'cart' ] = array_values( $_SESSION[ 'cart' ] );
+            include 'shoppingCart.php';
+            break;
+        case 'clearCart':
+            $_SESSION[ 'cart' ] = [];
+            include 'shoppingCart.php';
             break;
 //        case 'update':
 //            if ( !arrayHasValues(array_keys( $_POST ), [ 'message', 'id' ] ) ) {
@@ -265,5 +292,12 @@ function getIDs( $db ) {
 }
 
 function increaseQuantity( $id ) {
-    
+    $_SESSION[ 'cart' ][$id]['quantity']++;
+    getSubtotal( $id );
+    return;
+}
+
+function getSubtotal( $id ) {
+    $_SESSION[ 'cart' ][ $id ][ 'subtotal' ] = $_SESSION[ 'cart' ][ $id ][ 'quantity' ] * $_SESSION[ 'cart' ][ $id ][ 'product_price' ];
+    return;
 }

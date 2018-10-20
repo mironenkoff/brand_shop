@@ -1022,20 +1022,6 @@ header {
   vertical-align: middle;
   padding-left: 25px;
 }
-#clearCart {
-  margin-top: 44px;
-  margin-left: 14%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #eaeaea;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  width: 235px;
-  height: 50px;
-  font-family: Lato;
-  color: #4a4a4a;
-  font-weight: 700;
-}
 #continueShopping {
   margin-top: 44px;
   padding-top: 14px;
@@ -1050,6 +1036,23 @@ header {
   float: right;
   margin-right: 14%;
   text-align: center;
+}
+#clearCart {
+  margin-top: 44px;
+  padding-top: 14px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaea;
+  background-color: #ffffff;
+  width: 235px;
+  height: 50px;
+  color: #4a4a4a;
+  font-weight: 700;
+  float: right;
+  margin-right: 14%;
+  text-align: center;
+  float: left;
+  margin-left: 14%;
 }
 .delItem {
   border: none;
@@ -1066,6 +1069,7 @@ header {
   color: #c0c0c0;
 }
 .checkOutForm {
+  float: left;
   margin-left: 230px;
   margin-top: 63px;
 }

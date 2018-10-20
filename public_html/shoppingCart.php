@@ -4,7 +4,8 @@
     include '../my_php/views/modules/_nav.php';
     include '../my_php/views/modules/_newArrivals.php';
 ?>
-<?php print_r( $_SESSION[ 'cart' ] ); ?>
+<?php // print_r( $_SESSION[ 'cart' ] ); ?>
+<?php // print_r( $_SESSION[ 'products' ] ); ?>
 <div class="cartContent">
     <table class="cartTable">
         <thead class="cartTable__head">
@@ -18,22 +19,42 @@
             </tr>
         </thead>
         <tbody class="cartTable__body">
-            <tr>
-                <td>
-                    jjj
-                </td>
-            </tr>
+            <?php
+                $arr = $_SESSION[ 'cart' ];
+            ?>
+            <?php for ($i = 0; $i < count( $arr ); $i++ ): ?>
+                <tr>
+                    <td>
+                        <?php echo $arr[ $i ][ 'product_name' ]; ?>
+                    </td>
+                    <td>
+                        <?php echo $arr[ $i ][ 'product_price' ]; ?>
+                    </td>
+                    <td>
+                        <?php echo $arr[ $i ][ 'quantity' ]; ?>
+                    </td>
+                    <td>
+                        <?php echo $arr[ $i ][ 'shipping' ]; ?>
+                    </td>
+                    <td>
+                        <?php echo $arr[ $i ][ 'subtotal' ]; ?>
+                    </td>
+                    <td>
+                        <?php echo $arr[ $i ][ 'action' ]; ?>
+                    </td>
+                </tr>
+            <?php endfor; ?>
         </tbody>
     </table>       
 </div>
 
-<button id="clearCart">
+<a id="clearCart" href="?action=clearCart">
     CLEAR SHOPPING CART
-</button>
+</a>
 <a id="continueShopping" href="index.php">
     CONTINUE SHOPPING
 </a>
-<form class="checkOutForm" action="">
+<form class="checkOutForm clearfix" action="">
   <div class="checkOutForm__address">
     <h2>SHIPPING ADDRESS</h2>
     <select name="shippingCountry">
