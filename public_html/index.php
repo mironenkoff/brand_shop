@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <h2>Привет. Этот текст из index.php </h2>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+<?php
+
+require_once '../my_php/config.php';
+//var_dump($dsn);
+//var_dump($user);
+//var_dump($password);
+
+require_once '../my_php/model.php';
+
+$db = dbConnect( $dsn, $user, $password );
+//var_dump( $db );
+session_start();
+//session_destroy();
+
+if ( !$_SESSION[ 'cart' ] ) {
+    $_SESSION[ 'cart' ] = [];
+}
+doFeedbackAction($db);
+
