@@ -6,6 +6,10 @@
 ?>
 
 <form action="index.php" class="login clearfix" name="login">
+    
+    <h3>
+        <?php print_r($_REQUEST); ?>
+    </h3>
     <h3>
         WELCOME, $user!
     </h3>

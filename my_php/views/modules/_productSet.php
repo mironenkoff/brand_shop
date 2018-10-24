@@ -4,7 +4,7 @@
     
     <?php $_SESSION[ 'products' ] = getProducts( $db ); ?>
     <?php // print_r($_SESSION); ?>
-    <?php for ( $i = 4; $i < 12; $i++ ): ?>
+    <?php for ( $i = 0; $i < 8; $i++ ): ?>
         <?php
 //            $imgPath = $products[ $i ]["images_path"];
 //            $productID = $products[ $i ]["product_ID"];
@@ -21,7 +21,7 @@
         <div class="product clearfix">
             <a target="_blanc" class="product__ref clearfix" href="?action=goToProduct&id=<?php echo $productID; ?>">
                 <div class="product__imgWrap">
-                    <img class="product__img" src="../<?php echo $imgPath; ?>" alt="product 1">
+                    <img class="product__img" src="<?php echo $imgPath; ?>" alt="product 1">
                 </div>
                 <div class="product__descrWrap">
                     <h3 class="product__descr product__descr_default"><?php echo $brand . " " . $productName; ?></h3>

@@ -12,8 +12,8 @@
             for ( $i = 0; $i < count( $categoryItems ); $i++ ) {
                 $subCategoryItems[ $i ] = getSubCategories( $db, $categoryItems[ $i ] );
             }
-            
             $categoryList = array_combine( $categoryItems, $subCategoryItems );
+            
             echo '<ul class="dropDown">';
                 foreach ($categoryList as $key => $value) {
                     echo ( '<li class="dropDown__category">' . $key );

@@ -1,16 +1,10 @@
 <?php
 
-function dbConnect($dsn, $user, $password) {
+function dbConnect( $dsn, $user, $password ) {
     return new PDO( $dsn, $user, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION] );
 }
 
 function getCategories( $db ) {
-//    var_dump( $tableName );
-//    var_dump( $fieldName );
-//    var_dump( $db );
-//    $sql = 'USE brand;';
-    
-//    $sql = 'SELECT :fieldName FROM :tableName;';
     $sql = 'SELECT category_name FROM categories;';
     $stmnt = $db->prepare( $sql );
     
@@ -33,13 +27,20 @@ function getCategories( $db ) {
 }
 function getSubCategories( $db, $category) {
 
-    $sql = 'SELECT brand.categories.category_name,'
-            . ' brand.subcategories.subcategory_name'
-            . ' FROM brand.subcategories'
-            . ' INNER JOIN brand.categories'
-            . ' ON brand.subcategories.category_ID = brand.categories.category_ID'
-            . ' WHERE brand.categories.category_name = "'
+    $sql = 'SELECT categories.category_name,'
+            . ' subcategories.subcategory_name'
+            . ' FROM subcategories'
+            . ' INNER JOIN categories'
+            . ' ON subcategories.category_ID = categories.category_ID'
+            . ' WHERE categories.category_name = "'
             . $category . '"';
+//    $sql = 'SELECT brand.categories.category_name,'
+//            . ' brand.subcategories.subcategory_name'
+//            . ' FROM brand.subcategories'
+//            . ' INNER JOIN brand.categories'
+//            . ' ON brand.subcategories.category_ID = brand.categories.category_ID'
+//            . ' WHERE brand.categories.category_name = "'
+//            . $category . '"';
 //    var_dump($sql);
     $stmnt = $db->prepare( $sql );
     
@@ -63,35 +64,36 @@ function getSubCategories( $db, $category) {
 
 function getProduct( $db, $productID ) {
 
-    $sql = 'SELECT brand.brands.brand_name,'
-            . ' brand.products.product_name,'
-            . ' brand.products.product_price,'
-            . ' brand.products.product_descript,'
-            . ' brand.products.color,'
-            . ' brand.products.size,'
-            . ' brand.product_images.images_path,'
-            . ' brand.categories.category_name2,'
-            . ' brand.material.material_name,'
-            . ' brand.designers.designer_name'
-            . ' FROM brand.products'
-            . ' INNER JOIN brand.product_images'
-            . ' ON brand.products.product_ID = brand.product_images.product_ID'
-            . ' INNER JOIN brand.brands'
-            . ' ON brand.products.brand_ID = brand.brands.brand_ID'
-            . ' INNER JOIN brand.subcategories'
-            . ' ON brand.products.subcategory_ID = brand.subcategories.subcategory_ID'
-            . ' INNER JOIN brand.categories'
-            . ' ON brand.subcategories.category_ID = brand.categories.category_ID'
+    $sql = 'SELECT brands.brand_name,'
+            . ' products.product_name,'
+            . ' products.product_price,'
+            . ' products.product_descript,'
+            . ' products.color,'
+            . ' products.size,'
+            . ' product_images.images_path,'
+            . ' categories.category_name2,'
+            . ' material.material_name,'
+            . ' designers.designer_name'
+            . ' FROM products'
+            . ' INNER JOIN product_images'
+            . ' ON products.product_ID = product_images.product_ID'
+            . ' INNER JOIN brands'
+            . ' ON products.brand_ID = brands.brand_ID'
+            . ' INNER JOIN subcategories'
+            . ' ON products.subcategory_ID = subcategories.subcategory_ID'
+            . ' INNER JOIN categories'
+            . ' ON subcategories.category_ID = categories.category_ID'
 //            . ' UNION brand.material'
 //            . ' INNER JOIN brand.material'
 //            . ' ON brand.products.material_ID = brand.material.material_ID'
-            . ' LEFT JOIN brand.material'
-            . ' ON brand.products.material_ID = brand.material.material_ID'
+            . ' LEFT JOIN material'
+            . ' ON products.material_ID = material.material_ID'
 //            . ' UNION brand.designers'
-            . ' LEFT JOIN brand.designers'
-            . ' ON brand.products.designer_ID = brand.designers.designer_ID'
-            . ' WHERE brand.products.product_ID = "'
+            . ' LEFT JOIN designers'
+            . ' ON products.designer_ID = designers.designer_ID'
+            . ' WHERE products.product_ID = "'
             . $productID . '"';
+
 
 //    var_dump($sql);
     $stmnt = $db->prepare( $sql );
@@ -108,16 +110,17 @@ function getProduct( $db, $productID ) {
 
 function getProducts( $db ) {
 
-    $sql = 'SELECT brand.products.product_ID,'
-            . ' brand.brands.brand_name,'
-            . ' brand.products.product_name,'
-            . ' brand.products.product_price,'
-            . ' brand.product_images.images_path'
-            . ' FROM brand.products'
-            . ' INNER JOIN brand.product_images'
-            . ' ON brand.products.product_ID = brand.product_images.product_ID'
-            . ' INNER JOIN brand.brands'
-            . ' ON brand.products.brand_ID = brand.brands.brand_ID';
+    $sql = 'SELECT products.product_ID,'
+            . ' brands.brand_name,'
+            . ' products.product_name,'
+            . ' products.product_price,'
+            . ' product_images.images_path'
+            . ' FROM products'
+            . ' INNER JOIN product_images'
+            . ' ON products.product_ID = product_images.product_ID'
+            . ' INNER JOIN brands'
+            . ' ON products.brand_ID = brands.brand_ID';
+
 
 //    var_dump($sql);
     $stmnt = $db->prepare( $sql );
@@ -133,6 +136,7 @@ function getProducts( $db ) {
 }
 function doFeedbackAction( $db ) {
     if ( !isset( $_REQUEST[ 'action' ] ) ) {
+//        var_dump($_REQUEST);
         include '../my_php/views/mainView.php';
         return;
     }
