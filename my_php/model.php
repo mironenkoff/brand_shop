@@ -231,9 +231,42 @@ function doFeedbackAction( $db ) {
 //            }
 //            deleteComment($db, $_GET[ 'id' ] );
 //            break;
-
-            default:
-                break;
+        case 'checkout':
+//            if (!isset( $_REQUEST[ 'id' ] )) {
+//                break;
+//            }
+//                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
+//                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
+//                    return;
+//                }
+            
+            include 'checkOut.php';
+            break;
+        case 'toLogIn':
+//            if (!isset( $_REQUEST[ 'id' ] )) {
+//                break;
+//            }
+//                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
+//                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
+//                    return;
+//                }
+            
+            include 'login.php';
+            break;
+        case 'logIn':
+//            if (!isset( $_REQUEST[ 'id' ] )) {
+//                break;
+//            }
+//                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
+//                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
+//                    return;
+//                }
+            
+            include 'profile.php';
+            break;
+        default:
+            include '../my_php/views/mainView.php';
+            break;
         }
     }
 function createSinglePage( $db, $id ) {

@@ -54,7 +54,7 @@
 <a id="continueShopping" href="index.php">
     CONTINUE SHOPPING
 </a>
-<form class="checkOutForm clearfix" action="">
+<form class="checkOutForm clearfix" action="index.php" method="post" name="checkout">
   <div class="checkOutForm__address">
     <h2>SHIPPING ADDRESS</h2>
     <select name="shippingCountry">
@@ -79,7 +79,7 @@
     <h3>TOTAL<span id="cartTotal">$ ---</span></h3>
     <h2>GRAND TOTAL<span id="grandTotal">$ ---</span></h2>
     <hr>
-    <button class="button" name="proceed">PROCEED TO CHECKOUT</button>
+    <button class="button" name="action" value="checkout">PROCEED TO CHECKOUT</button>
   </div>
 </form>
 

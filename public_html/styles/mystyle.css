@@ -279,11 +279,12 @@ header {
   line-height: 32px;
   text-align: center;
   background-color: #f9f9f9;
+  line-height: 37px;
+  position: relative;
   width: 130px;
   float: right;
   background-color: #f16d7f;
   font-size: 15px;
-  padding-top: 3px;
 }
 .myAccountBtn_browseAll {
   float: none;
@@ -307,8 +308,31 @@ header {
 .myAccountBtn__txt_arrow {
   color: #ffffff;
 }
+.myAccountBtn a {
+  display: block;
+  height: 100%;
+}
 .myAccountBtn span {
   padding-left: 5px;
+}
+.myAccountBtn:hover .dropDown {
+  display: block;
+  position: absolute;
+  width: 100%;
+  border: 1px solid #f16d7f;
+  border-radius: 0 0 5px 5px;
+}
+.myAccountBtn:hover .dropDown li {
+  padding-left: 15px;
+}
+.myAccountBtn:hover .dropDown li:hover {
+  background-color: #ececec;
+}
+.myAccountBtn:hover .dropDown li:active {
+  font-weight: 600;
+}
+.myAccountBtn:hover .dropDown li:last-child {
+  border-radius: 0 0 5px 5px;
 }
 .myCartBtn {
   position: relative;
@@ -497,7 +521,7 @@ header {
 .product {
   float: left;
   position: relative;
-  margin-right: 19px;
+  margin-right: 14px;
   margin-bottom: 39px;
   width: 261px;
 }
@@ -1407,4 +1431,142 @@ header {
 .youMayLikeAlso img {
   display: block;
   margin: 0 auto;
+}
+.chekOutItems {
+  padding-left: 14%;
+  /*padding-top: 89px;*/
+  /*padding: 89px 14%;*/
+}
+.chekOutItems * {
+  color: #222;
+}
+.chekOutItems li {
+  padding: 33px 0;
+  font-weight: 700;
+  font-size: 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.chekOutItems form {
+  margin-top: 6px;
+  margin-left: 35px;
+  font-size: 12px;
+}
+.chekOutItems form fieldset {
+  float: left;
+  height: 100%;
+  margin-right: 293px;
+}
+.chekOutItems form h3 {
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 33px;
+}
+.chekOutItems form h5 {
+  margin-top: 15px;
+  margin-bottom: 11px;
+  line-height: 13px;
+  font-weight: 300;
+  font-size: 13px;
+  color: #b3b2b2;
+}
+.chekOutItems form li {
+  margin-top: 15px;
+  margin-bottom: 11px;
+  line-height: 13px;
+  font-weight: 300;
+  font-size: 13px;
+  color: #b3b2b2;
+  padding: 0;
+  border: none;
+}
+.chekOutItems form li:first-child {
+  margin-top: 33px;
+}
+.chekOutItems form i {
+  font-weight: 300;
+  font-size: 13px;
+  color: #b3b2b2;
+}
+.chekOutItems form button {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaea;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 180px;
+  height: 50px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 600;
+}
+.register input {
+  margin-top: 20px;
+}
+.register button {
+  margin-top: 38px;
+  margin-bottom: 44px;
+}
+.login {
+  width: 391px;
+  margin: 0 auto;
+}
+.login h3 {
+  font-weight: 600;
+  font-size: 13px;
+  margin: 33px 0;
+  text-align: center;
+}
+.login input {
+  margin-top: 16px;
+  margin-bottom: 22px;
+  border: solid 1px #eaeaea;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 390px;
+  height: 45px;
+  padding: 5px 15px;
+  font-size: 16px;
+}
+.login span {
+  color: #ff0d0d;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 20px;
+}
+.login button {
+  margin-top: 32px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eaeaea;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 180px;
+  height: 50px;
+  color: #f16d7f;
+  font-size: 14px;
+  font-weight: 600;
+}
+.login button:active {
+  outline: none;
+  color: #4a4a4a;
+}
+.login button:focus {
+  outline-color: #f16d7f;
+}
+#requiredFields {
+  margin-top: 15px;
+  margin-bottom: 0;
+  line-height: 13px;
+  font-weight: 300;
+  font-size: 13px;
+  color: #ff0d0d;
+}
+#forgotPassord {
+  /*    float: left;*/
+  margin-left: 32px;
+  /*margin-bottom: 11px;*/
+  line-height: 13px;
+  font-weight: 300;
+  font-size: 13px;
+  color: #222;
 }

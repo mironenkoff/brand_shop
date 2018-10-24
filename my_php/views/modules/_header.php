@@ -6,13 +6,6 @@
     <ul class="upperGroup">
         <li class="browseButton">Browse<span class="fa fa-caret-down"></span>
             <?php
-            $subCategoryWomen = [ "Dresses", "Tops", "Sweaters/Knits", "Jackets/Coats",
-                "Blazers", "Denim", "Leggings/Pants", "Skirts/Shorts", "Accessories" ];
-
-            $subCategoryMan = [ "Tees/Tank tops", "Shirts/Polos", "Sweaters",
-                "Sweatshirts/Hoodies", "Blazers", "Jackets/vests" ];
-
-//            $categoryItems = [ "WOMEN" => $subCategoryWomen, "MAN" => $subCategoryMan ];
             
             $categoryItems = getCategories($db);
             $subCategoryItems = [];
@@ -45,18 +38,18 @@
                 <button type="submit"><img src="img/search.png" alt="search"></button>
             </form>
         </li>
-        <!--<li><a class="myAccountBtn" href="#">My Account<span class="fa fa-caret-down"></span></a></li>-->
-        <li>
-            <a class="myAccountBtn" href="#">
+        <li class="myAccountBtn">
+            <a  href="##">
                 My Account
                 <span class="fa fa-caret-down"></span>
             </a>
+            <ul class="dropDown">
+                <li><a href="">Register</a></li>
+                <li><a href="?action=toLogIn">LogIn</a></li>
+                <li><a href="">Profile</a></li>
+                <li><a href="">LogOut</a></li>
+            </ul>
         </li>
-<!--        <li>
-            <a class="myCartBtn" href="shoppingCart.php">
-                <img src="img/cart.png" alt="My cart">
-            </a>
-        </li>-->
         <li>
             <form method="get" action="index.php">
                 <button name="action" value="openCart" class="myCartBtn">
