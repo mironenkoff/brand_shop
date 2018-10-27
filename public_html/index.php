@@ -6,6 +6,7 @@ require_once '../my_php/config.php';
 //var_dump($password);
 
 require_once '../my_php/model.php';
+require_once '../my_php/controller.php';
 
 $db = dbConnect( $dsn, $user, $password );
 //var_dump( $db );
