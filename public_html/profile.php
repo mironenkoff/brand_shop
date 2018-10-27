@@ -8,10 +8,12 @@
 <form action="index.php" class="login clearfix" name="login">
     
     <h3>
-        <?php print_r($_REQUEST); ?>
+       <?php // print_r($_REQUEST); ?>
+        <?php // print_r($_SESSION); ?>
+        <?php // print_r($user); ?>
     </h3>
     <h3>
-        WELCOME, $user!
+        WELCOME, <?php echo $user[ nickname ] ?>!
     </h3>
     
     <a id="forgotPassord" href="?action=editProfile">

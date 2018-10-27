@@ -1570,3 +1570,9 @@ header {
   font-size: 13px;
   color: #222;
 }
+.loginAlert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: red;
+}
