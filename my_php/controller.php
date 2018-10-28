@@ -124,21 +124,19 @@ function doFeedbackAction( $db ) {
             include 'login.php';
             break;
         case 'logIn':
+            $_SESSION[ user ] = [];
+            $loginAlert = 'Your email or password is incorrect!';
             if ( empty( $_REQUEST[ 'email' ] ) || empty( $_REQUEST[ 'password' ] ) ) {
-                echo '<p class="loginAlert"> You must type your email and password! </p>';
-                include 'login.php';
-                break;
+                $loginAlert = 'You must type your email and password!';
             }
-            if ( $user = getUser( $db, $_REQUEST[ 'email' ], $_REQUEST[ 'password' ] ) ) {
-                
-                include 'profile.php';
-                return $user;
-                
-            } else {
-                echo '<p class="loginAlert"> Your email or password is incorrect! </p>';
-                include 'profile.php';
+            if ( $user = getUser( $db, $_REQUEST[ 'email' ] ) ) {
+                if ( $_REQUEST[ 'password' ] === $user[ hash ] ) {
+                    $_SESSION[ user ] = $user;
+                } else {
+                    unset( $user );
+                }
             }
-            
+            include 'profile.php';
             break;
         default:
             include '../my_php/views/mainView.php';

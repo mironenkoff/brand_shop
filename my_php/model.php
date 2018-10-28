@@ -144,7 +144,7 @@ function getIDs( $db ) {
     return $res;
 }
 
-function getUser( $db, $email, $password ) {
+function getUser( $db, $email ) {
     
 //    $hash = hash($password);
 
