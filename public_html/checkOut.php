@@ -36,7 +36,7 @@
                         Easy access to your order history and status
                     </li>
                 </ul>
-                <button>CONTINUE</button>
+                <button name="action" value="register">CONTINUE</button>
             </fieldset>
             <fieldset class="login">
                 <h3>

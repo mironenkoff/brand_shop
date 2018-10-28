@@ -123,18 +123,57 @@ function doFeedbackAction( $db ) {
             
             include 'login.php';
             break;
+        case 'toRegister':
+//            if (!isset( $_REQUEST[ 'id' ] )) {
+//                break;
+//            }
+//                $params = empty( $_SESSION[ 'username' ] ) ? [ 'message', 'username' ] : [ 'message' ];
+//                if ( !arrayHasValues( array_keys( $_POST ), $params ) ) {
+//                    return;
+//                }
+            
+            include 'register.php';
+            break;
         case 'logIn':
+
             $_SESSION[ user ] = [];
             $loginAlert = 'Your email or password is incorrect!';
-            if ( empty( $_REQUEST[ 'email' ] ) || empty( $_REQUEST[ 'password' ] ) ) {
+            $password = $_REQUEST[ 'password' ];
+            $email = $_REQUEST[ 'email' ];
+            $user = getUser( $db, $email );
+
+            if ( empty( $email ) || empty( $password ) ) {
                 $loginAlert = 'You must type your email and password!';
-            }
-            if ( $user = getUser( $db, $_REQUEST[ 'email' ] ) ) {
-                if ( $_REQUEST[ 'password' ] === $user[ hash ] ) {
+            } elseif ( $user ) {
+                // проверка введенного пользователем пароля на корректность
+                $hash = getHash( $db, $user[ nickname ] );
+//                if ( $hash && password_verify( $password, $hash[ 'hash' ] ) ) {
+                if ( $hash && $password ) {
+                    $loginAlert = 'Welcome, ' . htmlspecialchars( $user[ nickname ] ) . '!';
                     $_SESSION[ user ] = $user;
                 } else {
+                    $loginAlert = 'Ошибка авторизации, ' . htmlspecialchars( $user[ nickname ] ) . '.';
                     unset( $user );
                 }
+            }
+
+            include 'profile.php';
+            break;
+        case 'register':
+
+            $_SESSION[ user ] = [];
+            $loginAlert = 'Your email or password is incorrect!';
+            $typedPassword = $_REQUEST[ 'password' ];
+            $typedEmail = $_REQUEST[ 'email' ];
+            $typedUser = $_REQUEST[ 'nickname' ];
+
+            if ( empty( $typedEmail ) || empty( $typedPassword ) ) {
+                $loginAlert = 'You must type your email and password!';
+            } elseif ( saveUser( $db, $typedUser, $typedEmail, $typedPassword ) ) {
+                    $loginAlert = 'You are succesfully registered!';
+                    $_SESSION[ user ] = getUser( $db, $typedEmail );
+            } else {
+                $loginAlert = 'Error!';
             }
             include 'profile.php';
             break;

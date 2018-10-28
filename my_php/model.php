@@ -168,3 +168,38 @@ function getUser( $db, $email ) {
 //    print_r($res);
     return $res;
 }
+function getHash( $db, $user ) {
+    
+//    $query = sprintf( "SELECT hash FROM users WHERE user='%s';",
+//                    pg_escape_string( $user[ nickname ] ) );
+//                $row = pg_fetch_assoc( pg_query( $db, $query ) );
+
+    $sql = "SELECT hash FROM users WHERE nickname = ?;";
+//    var_dump($sql);
+    $stmnt = $db->prepare( $sql );
+    $stmnt->bindParam( 1, $user, PDO::PARAM_STR, 45);
+    $stmnt->execute();
+    
+//    $res = $stmnt->fetchAll( PDO::FETCH_COLUMN, 1 );
+//    $res = $stmnt->fetchAll();
+    $res = $stmnt->fetch( PDO::FETCH_ASSOC );
+//    var_dump($res);
+//    print_r($res);
+    return $res;
+}
+
+function saveUser( $db, $user, $email, $password ) {
+
+    $sql = "INSERT INTO users( nickname, email, hash ) VALUES( ?, ?, ? );";
+    $stmnt = $db->prepare( $sql );
+    $stmnt->bindParam( 1, $user, PDO::PARAM_STR, 45);
+    $stmnt->bindParam( 2, $email, PDO::PARAM_STR, 45);
+    $stmnt->bindParam( 3, password_hash( $password, PASSWORD_DEFAULT ) );
+//    $res = $stmnt->fetchAll( PDO::FETCH_COLUMN, 1 );
+//    $res = $stmnt->fetchAll();
+//    $res = $stmnt->fetch( PDO::FETCH_ASSOC );
+//    var_dump($res);
+//    print_r($res);
+    return $stmnt->execute();
+}
+

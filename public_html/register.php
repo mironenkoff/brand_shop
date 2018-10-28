@@ -6,22 +6,19 @@
 ?>
 
 <form action="index.php" class="login clearfix" name="login">
-    
     <h3>
-        <?php
-//        print_r($user);
-            if ( $user[ nickname ] ) {
-                echo "WELCOME, " . $user[ nickname ] . "!";
-            } else {
-                echo '<p class="loginAlert">' . $loginAlert . '</p>';
-            }
-//            print_r( $_SESSION[ user ] );
-        ?>
+        YOUR REGISRATION INFO:
     </h3>
+    YOUR NAME<br>
+    <input type="text" name="nickname">
+    <br>
+    EMAIL ADDRESS<br>
+    <input type="email" name="email">
+    <br>
+    PASSWORD<br>
+    <input type="password" name="password">
+    <button name="action" value="register">REGISTER</button>
     
-    <a id="forgotPassord" href="?action=editProfile">
-        Edit your profile.
-    </a>
 </form>
 
 <?php

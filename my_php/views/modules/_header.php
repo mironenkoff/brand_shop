@@ -44,7 +44,7 @@
                 <span class="fa fa-caret-down"></span>
             </a>
             <ul class="dropDown">
-                <li><a href="">Register</a></li>
+                <li><a href="?action=toRegister">Register</a></li>
                 <li><a href="?action=toLogIn">LogIn</a></li>
                 <li><a href="">Profile</a></li>
                 <li><a href="">LogOut</a></li>
