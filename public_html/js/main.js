@@ -55,11 +55,11 @@ const goods = [
 ];
 
 // Функция кроссбраузерной установки обработчика событий
-function addEvent(elem, type, handler){
-    if(elem.addEventListener){
-        elem.addEventListener(type, handler, false);
+function addEvent( elem, type, handler ){
+    if( elem.addEventListener ){
+        elem.addEventListener( type, handler, false );
     } else {
-        elem.attachEvent('on'+type, function(){ handler.call( elem ); });
+        elem.attachEvent( 'on'+type, function(){ handler.call( elem ); } );
     }
 return false;
 }
@@ -125,15 +125,15 @@ function addToCart(){
 for (let i = 0; i < goods.length; i++) {
     document.getElementsByClassName( 'productSet' )[ 0 ].appendChild( createElement() );
     
-    document.getElementsByClassName('productSet__descr')[i].innerHTML = goods[i].name;
+    document.getElementsByClassName( 'productSet__descr' )[i].innerHTML = goods[i].name;
     let price = "$ " + goods[i].price;
-    document.getElementsByClassName('productSet__price')[i].innerHTML = price;
+    document.getElementsByClassName( 'productSet__price' )[i].innerHTML = price;
     let lnk = "img/prod_" + (i+1) + ".png";
-    document.getElementsByClassName('productSet__img')[i].src = lnk;
+    document.getElementsByClassName( 'productSet__img' )[i].src = lnk;
     let alter = "product " + (i+1);
-    document.getElementsByClassName('productSet__img')[i].alt = alter;
-    document.getElementsByClassName('button_addToCart')[i].id = i;
+    document.getElementsByClassName( 'productSet__img' )[i].alt = alter;
+    document.getElementsByClassName( 'button_addToCart' )[i].id = i;
     
     // Устанавливаем обработчик события на каждую кнопку "Добавить в корзину"
-    addEvent(document.getElementsByClassName('button_addToCart')[i], 'click', addToCart);
+    addEvent( document.getElementsByClassName( 'button_addToCart' )[i], 'click', addToCart );
 }

@@ -202,4 +202,3 @@ function saveUser( $db, $user, $email, $password ) {
 //    print_r($res);
     return $stmnt->execute();
 }
-
