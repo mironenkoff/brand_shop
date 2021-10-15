@@ -8,15 +8,15 @@
 
 //Подключение к БД Hostinger:
 
-$dsn = 'mysql:dbname=u675773894_brand;host=localhost';
-$user = 'u675773894_00001';
-$password = 'fFLhuHc6zFqr';
+// $dsn = 'mysql:dbname=u675773894_brand;host=localhost';
+// $user = 'u675773894_00001';
+// $password = 'fFLhuHc6zFqr';
 
 ////Подключение к БД openserver:
 //
-//$dsn = 'mysql:host=localhost;dbname=brand;charset=utf8';
-//$user = 'root';
-//$password = '';
+$dsn = 'mysql:host=localhost;dbname=brand;charset=utf8';
+$user = 'root';
+$password = '';
 
 //u675773894_brand
 //
