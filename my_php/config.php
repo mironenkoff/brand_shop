@@ -8,9 +8,9 @@
 
 //Подключение к БД Hostinger:
 
-$dsn = 'mysql:dbname=brand;host=localhost';
-$user = 'root';
-$password = '';
+$dsn = 'mysql:dbname=u675773894_brand;host=localhost';
+$user = 'u675773894_00001';
+$password = 'fFLhuHc6zFqr';
 
 ////Подключение к БД openserver:
 //
